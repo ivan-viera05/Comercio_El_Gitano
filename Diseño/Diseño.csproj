@@ -64,11 +64,23 @@
     <Compile Include="BajaProveedor.Designer.cs">
       <DependentUpon>BajaProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaLibroHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaLibroHistorial.Designer.cs">
+      <DependentUpon>ConsultaLibroHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ConsultaProveedor.Designer.cs">
       <DependentUpon>ConsultaProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaProveedorHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaProveedorHistorial.Designer.cs">
+      <DependentUpon>ConsultaProveedorHistorial.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsultaProveedorLibro.cs">
       <SubType>Form</SubType>
@@ -141,8 +153,14 @@
     <EmbeddedResource Include="BajaProveedor.resx">
       <DependentUpon>BajaProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaLibroHistorial.resx">
+      <DependentUpon>ConsultaLibroHistorial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultaProveedor.resx">
       <DependentUpon>ConsultaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaProveedorHistorial.resx">
+      <DependentUpon>ConsultaProveedorHistorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaProveedorLibro.resx">
       <DependentUpon>ConsultaProveedorLibro.cs</DependentUpon>

@@ -1,0 +1,6 @@
+C:\POO\Tp-Individuales\ComercioElGitano\Datos\bin\Debug\Datos.dll
+C:\POO\Tp-Individuales\ComercioElGitano\Datos\bin\Debug\Datos.pdb
+C:\POO\Tp-Individuales\ComercioElGitano\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\POO\Tp-Individuales\ComercioElGitano\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\POO\Tp-Individuales\ComercioElGitano\Datos\obj\Debug\Datos.dll
+C:\POO\Tp-Individuales\ComercioElGitano\Datos\obj\Debug\Datos.pdb

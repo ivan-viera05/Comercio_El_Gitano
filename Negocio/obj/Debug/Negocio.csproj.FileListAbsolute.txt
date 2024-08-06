@@ -1,0 +1,9 @@
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\bin\Debug\Negocio.dll
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\bin\Debug\Negocio.pdb
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\bin\Debug\Datos.dll
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\bin\Debug\Datos.pdb
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\obj\Debug\Negocio.csproj.Up2Date
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\obj\Debug\Negocio.dll
+C:\POO\Tp-Individuales\ComercioElGitano\Negocio\obj\Debug\Negocio.pdb

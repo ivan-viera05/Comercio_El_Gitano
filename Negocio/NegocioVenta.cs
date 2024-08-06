@@ -30,9 +30,9 @@ namespace Negocio
             public int Cantidad { get; set; }
             public decimal PrecioVenta { get; set; }
         }
-        public DataTable BuscarVentas(int? ventaID, string dni, string isbn, string fechaVenta,decimal? precioVenta)
+        public DataTable BuscarVentas(int? ventaID, string dni, string isbn, string fechaVenta, decimal? precioVenta, DateTime? startDate, DateTime? endDate)
         {
-            return ventaData.BuscarVentas(ventaID, dni, isbn, fechaVenta, precioVenta);
+            return ventaData.BuscarVentas(ventaID, dni, isbn, fechaVenta, precioVenta, startDate, endDate);
         }
     }
 }

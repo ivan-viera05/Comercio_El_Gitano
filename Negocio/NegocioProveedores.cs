@@ -60,7 +60,16 @@ namespace Negocio
 
         public void ModificarProveedor(int id, string nombre, string email, string telefono, string direccion)
         {
-           datosProveedores.ModificarProveedor(id, nombre, email, telefono, direccion);
+            datosProveedores.ModificarProveedor(id, nombre, email, telefono, direccion);
+        }
+
+        public DataTable BuscarHistorialModificaciones(int? proveedorID, string nombre, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            return datosProveedores.BuscarHistorialModificaciones(proveedorID, nombre, fechaDesde, fechaHasta);
+        }
+        public DataTable ObtenerHistorialModificaciones()
+        {
+            return datosProveedores.ObtenerHistorialModificaciones();
         }
 
     }

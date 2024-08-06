@@ -183,25 +183,142 @@ namespace Datos
             }
         }
 
-            public void ModificarProveedor(int id, string nombre, string email, string telefono, string direccion)
+        public void ModificarProveedor(int id, string nombre, string email, string telefono, string direccion)
+        {
+            using (SqlConnection connection = Conexion.conectar())
             {
-              
-                    Conexion.conectar();
-                    string query = "UPDATE proveedores SET Nombre = @Nombre, Email = @Email, Telefono = @Telefono, Direccion = @Direccion WHERE ProveedorID = @ProveedorID";
-                    SqlCommand command = new SqlCommand(query, Conexion.conectar());
-                    command.Parameters.AddWithValue("@ProveedorID", id);
-                    command.Parameters.AddWithValue("@Nombre", nombre);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Telefono", telefono);
-                    command.Parameters.AddWithValue("@Direccion", direccion);
-                    
+                // Obtener datos anteriores del proveedor
+                string querySelect = "SELECT Nombre, Email, Telefono, Direccion, Activo FROM Proveedores WHERE ProveedorID = @ProveedorID";
+                SqlCommand commandSelect = new SqlCommand(querySelect, connection);
+                commandSelect.Parameters.AddWithValue("@ProveedorID", id);
 
-                   
-                    command.ExecuteNonQuery();
-                   
-                
+                SqlDataAdapter adapter = new SqlDataAdapter(commandSelect);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    string nombreAnterior = row["Nombre"].ToString();
+                    string emailAnterior = row["Email"].ToString();
+                    string telefonoAnterior = row["Telefono"].ToString();
+                    string direccionAnterior = row["Direccion"].ToString();
+                    bool activoAnterior = Convert.ToBoolean(row["Activo"]);
+
+                    // Modificar el proveedor
+                    string queryUpdate = "UPDATE Proveedores SET Nombre = @Nombre, Email = @Email, Telefono = @Telefono, Direccion = @Direccion WHERE ProveedorID = @ProveedorID";
+                    SqlCommand commandUpdate = new SqlCommand(queryUpdate, connection);
+                    commandUpdate.Parameters.AddWithValue("@ProveedorID", id);
+                    commandUpdate.Parameters.AddWithValue("@Nombre", nombre);
+                    commandUpdate.Parameters.AddWithValue("@Email", email);
+                    commandUpdate.Parameters.AddWithValue("@Telefono", telefono);
+                    commandUpdate.Parameters.AddWithValue("@Direccion", direccion);
+                    commandUpdate.ExecuteNonQuery();
+
+                    // Insertar en ProveedorHistorial
+                    InsertarProveedorHistorial(id, nombreAnterior, emailAnterior, telefonoAnterior, direccionAnterior, activoAnterior, nombre, email, telefono, direccion, activoAnterior);
+                }
             }
         }
+
+            public void InsertarProveedorHistorial(int proveedorID, string nombreAnterior, string emailAnterior, string telefonoAnterior, string direccionAnterior, bool activoAnterior, string nombreNuevo, string emailNuevo, string telefonoNuevo, string direccionNuevo, bool activoNuevo)
+            {
+                using (SqlConnection connection = Conexion.conectar())
+                {
+                    string query = "INSERT INTO ProveedorHistorial (ProveedorID, NombreAnterior, EmailAnterior, TelefonoAnterior, DireccionAnterior, ActivoAnterior, NombreNuevo, EmailNuevo, TelefonoNuevo, DireccionNuevo, ActivoNuevo, FechaModificacion) " +
+                                   "VALUES (@ProveedorID, @NombreAnterior, @EmailAnterior, @TelefonoAnterior, @DireccionAnterior, @ActivoAnterior, @NombreNuevo, @EmailNuevo, @TelefonoNuevo, @DireccionNuevo, @ActivoNuevo, @FechaModificacion)";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@ProveedorID", proveedorID);
+                    command.Parameters.AddWithValue("@NombreAnterior", nombreAnterior);
+                    command.Parameters.AddWithValue("@EmailAnterior", emailAnterior);
+                    command.Parameters.AddWithValue("@TelefonoAnterior", telefonoAnterior);
+                    command.Parameters.AddWithValue("@DireccionAnterior", direccionAnterior);
+                    command.Parameters.AddWithValue("@ActivoAnterior", activoAnterior);
+                    command.Parameters.AddWithValue("@NombreNuevo", nombreNuevo);
+                    command.Parameters.AddWithValue("@EmailNuevo", emailNuevo);
+                    command.Parameters.AddWithValue("@TelefonoNuevo", telefonoNuevo);
+                    command.Parameters.AddWithValue("@DireccionNuevo", direccionNuevo);
+                    command.Parameters.AddWithValue("@ActivoNuevo", activoNuevo);
+                    command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+
+        public DataTable BuscarHistorialModificaciones(int? proveedorID, string nombre, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            using (SqlConnection connection = Conexion.conectar())
+            {
+                StringBuilder query = new StringBuilder("SELECT * FROM ProveedorHistorial WHERE 1=1");
+
+                if (proveedorID.HasValue)
+                {
+                    query.Append(" AND ProveedorID = @ProveedorID");
+                }
+
+                if (!string.IsNullOrEmpty(nombre))
+                {
+                    query.Append(" AND (NombreAnterior LIKE '%' + @Nombre + '%' OR NombreNuevo LIKE '%' + @Nombre + '%')");
+                }
+
+                if (fechaDesde.HasValue)
+                {
+                    query.Append(" AND FechaModificacion >= @FechaDesde");
+                }
+
+                if (fechaHasta.HasValue)
+                {
+                    query.Append(" AND FechaModificacion <= @FechaHasta");
+                }
+
+                SqlCommand command = new SqlCommand(query.ToString(), connection);
+
+                if (proveedorID.HasValue)
+                {
+                    command.Parameters.AddWithValue("@ProveedorID", proveedorID.Value);
+                }
+
+                if (!string.IsNullOrEmpty(nombre))
+                {
+                    command.Parameters.AddWithValue("@Nombre", nombre);
+                }
+
+                if (fechaDesde.HasValue)
+                {
+                    command.Parameters.AddWithValue("@FechaDesde", fechaDesde.Value);
+                }
+
+                if (fechaHasta.HasValue)
+                {
+                    command.Parameters.AddWithValue("@FechaHasta", fechaHasta.Value);
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                return dt;
+            }
+        }
+        public DataTable ObtenerHistorialModificaciones()
+        {
+            using (SqlConnection conexion = Conexion.conectar())
+            {
+                DataTable dt = new DataTable();
+                string sql = "select * from ProveedorHistorial";
+                using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                return dt;
+            }
+        }
+
+
     }
+    }
+
 
 

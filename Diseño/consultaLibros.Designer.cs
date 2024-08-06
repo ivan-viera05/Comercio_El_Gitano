@@ -209,13 +209,13 @@
             this.dtgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(70)))));
             this.dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv.Location = new System.Drawing.Point(12, 212);
+            this.dtgv.Location = new System.Drawing.Point(12, 240);
             this.dtgv.Name = "dtgv";
             this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
             this.dtgv.RowTemplate.Height = 24;
-            this.dtgv.Size = new System.Drawing.Size(658, 190);
+            this.dtgv.Size = new System.Drawing.Size(658, 162);
             this.dtgv.TabIndex = 39;
             this.dtgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellContentClick);
             // 

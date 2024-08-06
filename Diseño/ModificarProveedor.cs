@@ -48,7 +48,7 @@ namespace Diseño
                     txtName.Text,
                     txtEmail.Text,
                     txtTelefono.Text,
-                    txtDireccion.Text                    
+                    txtDireccion.Text
                 );
                 MessageBox.Show("Proveedor modificado correctamente.");
                 dtgv.DataSource = negocioProveedores.LlenarGrid();

@@ -32,7 +32,7 @@ namespace Diseño
 
         private void ModificarLibro_Load(object sender, EventArgs e)
         {
-
+             
         }
 
         private void dtgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -79,7 +79,7 @@ namespace Diseño
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
 
-            // Validar que se haya seleccionado una fila en el DataGridView
+           // Validar que se haya seleccionado una fila en el DataGridView
             if (dtgv.CurrentCell == null)
             {
                 MessageBox.Show("Debe seleccionar un libro para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

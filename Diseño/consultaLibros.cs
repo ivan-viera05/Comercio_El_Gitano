@@ -81,5 +81,25 @@ namespace Diseño
             cbxGenero.SelectedIndex = -1;
             dtgv.DataSource = null;
         }
+
+        private void dateTimePickerEnd_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

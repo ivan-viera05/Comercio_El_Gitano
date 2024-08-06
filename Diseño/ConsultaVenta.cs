@@ -41,11 +41,13 @@ namespace Diseño
             string isbn = string.IsNullOrEmpty(txtCodigoLibro.Text) ? null : txtCodigoLibro.Text;
             string fechaVenta = string.IsNullOrEmpty(txtFechaCompra.Text) ? null : txtFechaCompra.Text;
             decimal? precioVenta = string.IsNullOrEmpty(txtPrecioVenta.Text) ? (decimal?)null : Convert.ToDecimal(txtPrecioVenta.Text);
-            
+            DateTime? startDate = dateTimePickerStart.Value;
+            DateTime? endDate = dateTimePickerEnd.Value;
+
             try
             {
                 NegocioVenta negocioVentas = new NegocioVenta();
-                dataGridView1.DataSource = negocioVentas.BuscarVentas(ventaID, dni, isbn, fechaVenta, precioVenta);
+                dataGridView1.DataSource = negocioVentas.BuscarVentas(ventaID, dni, isbn, fechaVenta, precioVenta, startDate, endDate);
             }
             catch (Exception ex)
             {
@@ -107,6 +109,30 @@ namespace Diseño
             {
                 e.Handled = true;
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCodigoLibro.Clear();
+            txtDni.Clear();
+            txtFechaCompra.Clear();
+            txtIDVenta.Clear();
+            txtPrecioVenta.Clear();
+           
+           
+           
+            
+
         }
     }
 }

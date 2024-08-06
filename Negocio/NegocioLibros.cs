@@ -12,8 +12,7 @@ namespace Negocio
     public class NegocioLibros
     {
         private DatosLibros datosLibros = new DatosLibros();
-        private AltaLibro altaLibro = new AltaLibro();
-        private ModificarLibro modificarLibro = new ModificarLibro();
+       
 
         
 
@@ -29,19 +28,19 @@ namespace Negocio
 
         public void AgregarLibro(string titulo, string autor, string isbn, string fechaPublicacion, string editorial, decimal precio, int paginas, int genero, string descripcion, int stock, int proveedorID)
         {
-            altaLibro.AgregarLibro(titulo, autor, isbn, fechaPublicacion, editorial, precio, paginas, genero, descripcion, stock, proveedorID);
+            datosLibros.AgregarLibro(titulo, autor, isbn, fechaPublicacion, editorial, precio, paginas, genero, descripcion, stock, proveedorID);
         }
     
 
         public void SumarStock(string isbn, int cantidad)
         {
-            altaLibro.SumarStock(isbn, cantidad); // Usar la instancia
+            datosLibros.SumarStock(isbn, cantidad); // Usar la instancia
         }
        
 
         public void ModificarLibro(int id, string titulo, string autor, string isbn, string fechaPublicacion, string editorial, decimal precio, int paginas, string genero, string descripcion, int stock)
         {
-            modificarLibro.Modificar(id, titulo, autor, isbn, fechaPublicacion, editorial, precio, paginas, genero, descripcion, stock);
+            datosLibros.Modificar(id, titulo, autor, isbn, fechaPublicacion, editorial, precio, paginas, genero, descripcion, stock);
         }
         public DataTable GetBookByISBN(string isbn)
         {
@@ -51,6 +50,14 @@ namespace Negocio
         public void RestarStock(string isbn, int cantidad)
         {
             DatosLibros.RestarStock(isbn, cantidad);
+        }
+        public DataTable ObtenerHistorialModificaciones(string titulo, string isbn, DateTime? desde, DateTime? hasta)
+        {
+            return datosLibros.ObtenerHistorialModificaciones(titulo, isbn, desde, hasta);
+        }
+        public DataTable ObtenerHistorialModificacion()
+        {
+            return datosLibros.ObtenerHistorialLibros();
         }
 
     }

@@ -59,24 +59,33 @@ namespace Datos
             }
         }
 
-        public DataTable BuscarVentas(int? ventaID, string dni, string isbn, string fechaVenta, decimal? precioVenta)
+        public DataTable BuscarVentas(int? ventaID, string dni, string isbn, string fechaVenta, decimal? precioVenta, DateTime? startDate, DateTime? endDate)
         {
+            Conexion.conectar();
+            string query = @"
+        SELECT * 
+        FROM ventas 
+        WHERE (@VentaID IS NULL OR VentaID = @VentaID) 
+          AND (@DNI IS NULL OR DNI = @DNI) 
+          AND (@ISBN IS NULL OR ISBN = @ISBN) 
+          AND (@FechaVenta IS NULL OR FechaVenta = @FechaVenta) 
+          AND (@PrecioVenta IS NULL OR PrecioVenta = @PrecioVenta)
+          AND (@StartDate IS NULL OR FechaVenta >= @StartDate)
+          AND (@EndDate IS NULL OR FechaVenta <= @EndDate)";
 
-                Conexion.conectar();
-                string query = "SELECT * FROM ventas WHERE (@VentaID IS NULL OR VentaID = @VentaID) AND (@DNI IS NULL OR DNI = @DNI) AND (@ISBN IS NULL OR ISBN = @ISBN) AND (@FechaVenta IS NULL OR FechaVenta = @FechaVenta) AND (@PrecioVenta IS NULL OR PrecioVenta = @PrecioVenta)";
-                SqlCommand command = new SqlCommand(query,Conexion.conectar());
-                command.Parameters.AddWithValue("@VentaID", (object)ventaID ?? DBNull.Value);
-                command.Parameters.AddWithValue("@DNI", (object)dni ?? DBNull.Value);
-                command.Parameters.AddWithValue("@ISBN", (object)isbn ?? DBNull.Value);
-                command.Parameters.AddWithValue("@FechaVenta", (object)fechaVenta ?? DBNull.Value);              
-                command.Parameters.AddWithValue("@PrecioVenta", (object)precioVenta ?? DBNull.Value);
-              
+            SqlCommand command = new SqlCommand(query, Conexion.conectar());
+            command.Parameters.AddWithValue("@VentaID", (object)ventaID ?? DBNull.Value);
+            command.Parameters.AddWithValue("@DNI", (object)dni ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ISBN", (object)isbn ?? DBNull.Value);
+            command.Parameters.AddWithValue("@FechaVenta", (object)fechaVenta ?? DBNull.Value);
+            command.Parameters.AddWithValue("@PrecioVenta", (object)precioVenta ?? DBNull.Value);
+            command.Parameters.AddWithValue("@StartDate", (object)startDate ?? DBNull.Value);
+            command.Parameters.AddWithValue("@EndDate", (object)endDate ?? DBNull.Value);
 
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
-            
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
         }
 
     }

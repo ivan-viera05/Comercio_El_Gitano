@@ -214,5 +214,22 @@ namespace Diseño
             hideSubMenu();
             openChildForm(new ConsultaVenta());
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            openChildForm(new ConsultaProveedorHistorial());
+        }
+
+        private void panelLibroSubmenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            openChildForm(new ConsultaLibroHistorial());
+        }
     }
 }
