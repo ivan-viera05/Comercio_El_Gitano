@@ -3,7 +3,8 @@ Comercio El Gitano es una aplicación de escritorio desarrollada en C# utilizand
 
 CARACTERISTICAS Gestión de Libros: Permite realizar operaciones CRUD sobre los libros de la librería. Gestión de Ventas: Incluye funcionalidades para registrar ventas, así como para consultar y modificar registros existentes. Gestion de Clientes: Podras tener el control de clientes como datos personales tambien datos de compra y mas... Validaciones: Implementación de validaciones de datos en la capa de negocio. Estructura en Capas: Separación de la lógica de negocio, acceso a datos y presentación. Base de Datos: Uso de SQL Server para el almacenamiento y gestión de datos. Interfaz de Usuario: Desarrollado con Windows Forms para una interfaz de usuario amigable.
 
-INSTALACION Para ejecutar este proyecto en tu máquina local, sigue estos pasos: 1-Clona el repositorio: bash Copiar código git clone https://github.com/ivan-viera05/ComercioElGitano.git cd ComercioElGitano 2-Configura la base de datos:
+INSTALACION Para ejecutar este proyecto en tu máquina local, sigue estos pasos: 1-Clona el repositorio: bash Copiar código git clone https://github.com/ivan-viera05/Comercio_El_Gitano.git cd ComercioElGitano 
+2-Configura la base de datos:
 
 Asegúrate de tener SQL Server instalado y en funcionamiento. Restaura la base de datos desde el archivo de respaldo proporcionado en la carpeta Database. Actualiza la cadena de conexión en el archivo App.config en el proyecto de capa de datos (Datos). Compila y ejecuta el proyecto:
 
