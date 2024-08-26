@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Diseño
 {
-    public partial class Form1 : Form
+    public partial class ElGitano : Form
     {
-        public Form1()
+        public ElGitano()
         {
             InitializeComponent();
             diseño();
@@ -64,7 +64,7 @@ namespace Diseño
         }
         private void diseño()
         {
-            panelClientes.Visible = true;
+            panelClientes.Visible = false;
             panelLibroSubmenu.Visible = false;
             panelProveedores.Visible = false;
             panelRemito.Visible = false;
@@ -230,6 +230,11 @@ namespace Diseño
         {
             hideSubMenu();
             openChildForm(new ConsultaLibroHistorial());
+        }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

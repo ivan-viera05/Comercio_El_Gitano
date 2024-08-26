@@ -105,11 +105,11 @@
             this.grbxAgregarStock.Controls.Add(this.label8);
             this.grbxAgregarStock.Controls.Add(this.txtCantidadAgregar);
             this.grbxAgregarStock.ForeColor = System.Drawing.Color.White;
-            this.grbxAgregarStock.Location = new System.Drawing.Point(23, 321);
+            this.grbxAgregarStock.Location = new System.Drawing.Point(12, 287);
             this.grbxAgregarStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbxAgregarStock.Name = "grbxAgregarStock";
             this.grbxAgregarStock.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbxAgregarStock.Size = new System.Drawing.Size(648, 95);
+            this.grbxAgregarStock.Size = new System.Drawing.Size(659, 95);
             this.grbxAgregarStock.TabIndex = 45;
             this.grbxAgregarStock.TabStop = false;
             this.grbxAgregarStock.Text = "Agrega Stock";
@@ -119,20 +119,21 @@
             this.btnCancelarStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancelarStock.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelarStock.Location = new System.Drawing.Point(481, 30);
+            this.btnCancelarStock.Location = new System.Drawing.Point(492, 30);
             this.btnCancelarStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelarStock.Name = "btnCancelarStock";
             this.btnCancelarStock.Size = new System.Drawing.Size(87, 31);
             this.btnCancelarStock.TabIndex = 39;
             this.btnCancelarStock.Text = "Cancelar";
             this.btnCancelarStock.UseVisualStyleBackColor = false;
+            this.btnCancelarStock.Click += new System.EventHandler(this.btnCancelarStock_Click);
             // 
             // btnSumarStock
             // 
             this.btnSumarStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSumarStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSumarStock.ForeColor = System.Drawing.Color.Black;
-            this.btnSumarStock.Location = new System.Drawing.Point(377, 30);
+            this.btnSumarStock.Location = new System.Drawing.Point(388, 30);
             this.btnSumarStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSumarStock.Name = "btnSumarStock";
             this.btnSumarStock.Size = new System.Drawing.Size(87, 31);
@@ -147,8 +148,10 @@
             this.txtCodigo2.Location = new System.Drawing.Point(13, 39);
             this.txtCodigo2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodigo2.Name = "txtCodigo2";
-            this.txtCodigo2.Size = new System.Drawing.Size(112, 22);
+            this.txtCodigo2.Size = new System.Drawing.Size(123, 22);
             this.txtCodigo2.TabIndex = 38;
+            this.txtCodigo2.TextChanged += new System.EventHandler(this.txtCodigo2_TextChanged);
+            this.txtCodigo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo2_KeyPress);
             // 
             // label13
             // 
@@ -167,7 +170,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(164, 20);
+            this.label8.Location = new System.Drawing.Point(175, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(151, 20);
             this.label8.TabIndex = 34;
@@ -176,11 +179,14 @@
             // txtCantidadAgregar
             // 
             this.txtCantidadAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCantidadAgregar.Location = new System.Drawing.Point(165, 39);
+            this.txtCantidadAgregar.Location = new System.Drawing.Point(176, 39);
             this.txtCantidadAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCantidadAgregar.Name = "txtCantidadAgregar";
             this.txtCantidadAgregar.Size = new System.Drawing.Size(151, 22);
             this.txtCantidadAgregar.TabIndex = 33;
+            this.txtCantidadAgregar.TextChanged += new System.EventHandler(this.txtCantidadAgregar_TextChanged);
+            this.txtCantidadAgregar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidadAgregar_KeyDown);
+            this.txtCantidadAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadAgregar_KeyPress);
             // 
             // grbxNuevo
             // 
@@ -216,10 +222,11 @@
             this.grbxNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbxNuevo.Name = "grbxNuevo";
             this.grbxNuevo.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbxNuevo.Size = new System.Drawing.Size(659, 220);
+            this.grbxNuevo.Size = new System.Drawing.Size(659, 184);
             this.grbxNuevo.TabIndex = 44;
             this.grbxNuevo.TabStop = false;
             this.grbxNuevo.Text = "Nuevo Libro";
+            this.grbxNuevo.Enter += new System.EventHandler(this.grbxNuevo_Enter);
             // 
             // label10
             // 
@@ -262,6 +269,9 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(130, 22);
             this.txtStock.TabIndex = 40;
+            this.txtStock.TextChanged += new System.EventHandler(this.txtStock_TextChanged);
+            this.txtStock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStock_KeyDown);
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label14
             // 
@@ -283,6 +293,9 @@
             this.txtPaginas.Name = "txtPaginas";
             this.txtPaginas.Size = new System.Drawing.Size(68, 22);
             this.txtPaginas.TabIndex = 38;
+            this.txtPaginas.TextChanged += new System.EventHandler(this.txtPaginas_TextChanged);
+            this.txtPaginas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPaginas_KeyDown);
+            this.txtPaginas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaginas_KeyPress);
             // 
             // btnCancelar
             // 
@@ -353,6 +366,9 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(145, 22);
             this.txtPrecio.TabIndex = 31;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.txtPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrecio_KeyDown);
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label6
             // 
@@ -374,6 +390,8 @@
             this.txtFechaPublicacion.Name = "txtFechaPublicacion";
             this.txtFechaPublicacion.Size = new System.Drawing.Size(149, 22);
             this.txtFechaPublicacion.TabIndex = 29;
+            this.txtFechaPublicacion.TextChanged += new System.EventHandler(this.txtFechaPublicacion_TextChanged_1);
+            this.txtFechaPublicacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFechaPublicacion_KeyDown);
             // 
             // label5
             // 
@@ -418,6 +436,9 @@
             this.txtAutor.Name = "txtAutor";
             this.txtAutor.Size = new System.Drawing.Size(127, 22);
             this.txtAutor.TabIndex = 25;
+            this.txtAutor.TextChanged += new System.EventHandler(this.txtAutor_TextChanged);
+            this.txtAutor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAutor_KeyDown);
+            this.txtAutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAutor_KeyPress);
             // 
             // txtName
             // 
@@ -504,6 +525,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(123, 22);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // btnNuevoLibro
             // 

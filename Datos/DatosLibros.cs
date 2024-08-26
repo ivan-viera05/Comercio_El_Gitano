@@ -25,6 +25,34 @@ namespace Datos
             }
         }
 
+        public bool ActualizarCantidadLibro(string isbn, int nuevaCantidad, decimal nuevoPrecio)
+        {
+            using (SqlConnection conexion = Conexion.conectar())
+            {
+                string query = "UPDATE Libros SET Cantidad = @Cantidad, Precio = @Precio WHERE ISBN = @ISBN";
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@Cantidad", nuevaCantidad);
+                cmd.Parameters.AddWithValue("@Precio", nuevoPrecio);
+                cmd.Parameters.AddWithValue("@ISBN", isbn);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+        }
+
+        public bool EliminarLibro(string isbn)
+        {
+            using (SqlConnection conexion = Conexion.conectar())
+            {
+                string query = "DELETE FROM Libros WHERE ISBN = @ISBN";
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@ISBN", isbn);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+        }
+
         public DataTable BuscarLibros(string titulo, string autor, string codigo, string genero, string editorial)
         {
             using (SqlConnection conexion = Conexion.conectar())
@@ -264,13 +292,14 @@ namespace Datos
                 DataTable dt = new DataTable();
                 string consulta = "SELECT * FROM LibrosHistorial WHERE 1=1";
 
+                // Añadir condiciones a la consulta según los parámetros proporcionados
                 if (!string.IsNullOrEmpty(titulo))
                 {
-                    consulta += " AND Titulo LIKE @Titulo";
+                    consulta += " AND TituloNuevo LIKE @Titulo";
                 }
                 if (!string.IsNullOrEmpty(isbn))
                 {
-                    consulta += " AND ISBN LIKE @ISBN";
+                    consulta += " AND ISBNNuevo LIKE @ISBN";
                 }
                 if (desde.HasValue)
                 {
@@ -283,6 +312,7 @@ namespace Datos
 
                 using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                 {
+                    // Asignar valores a los parámetros de la consulta
                     if (!string.IsNullOrEmpty(titulo))
                     {
                         cmd.Parameters.AddWithValue("@Titulo", "%" + titulo + "%");

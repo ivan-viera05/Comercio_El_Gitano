@@ -94,6 +94,7 @@
             this.txtIDVenta.Name = "txtIDVenta";
             this.txtIDVenta.Size = new System.Drawing.Size(167, 22);
             this.txtIDVenta.TabIndex = 64;
+            this.txtIDVenta.TextChanged += new System.EventHandler(this.txtIDVenta_TextChanged);
             // 
             // btnLimpiar
             // 
@@ -123,6 +124,8 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
@@ -134,22 +137,28 @@
             // 
             // txtCodigoLibro
             // 
+            this.txtCodigoLibro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoLibro.Location = new System.Drawing.Point(232, 70);
             this.txtCodigoLibro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodigoLibro.Name = "txtCodigoLibro";
             this.txtCodigoLibro.Size = new System.Drawing.Size(131, 22);
             this.txtCodigoLibro.TabIndex = 60;
+            this.txtCodigoLibro.TextChanged += new System.EventHandler(this.txtCodigoLibro_TextChanged);
             // 
             // txtDni
             // 
+            this.txtDni.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtDni.Location = new System.Drawing.Point(384, 70);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(137, 22);
             this.txtDni.TabIndex = 59;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
@@ -164,7 +173,7 @@
             this.txtFechaCompra.Location = new System.Drawing.Point(28, 120);
             this.txtFechaCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFechaCompra.Name = "txtFechaCompra";
-            this.txtFechaCompra.Size = new System.Drawing.Size(137, 22);
+            this.txtFechaCompra.Size = new System.Drawing.Size(167, 22);
             this.txtFechaCompra.TabIndex = 57;
             this.txtFechaCompra.TextChanged += new System.EventHandler(this.txtFechaCompra_TextChanged);
             this.txtFechaCompra.Leave += new System.EventHandler(this.txtFechaCompra_Leave);
@@ -203,19 +212,24 @@
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(225, 120);
+            this.txtPrecioVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecioVenta.Location = new System.Drawing.Point(232, 120);
             this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(137, 22);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(131, 22);
             this.txtPrecioVenta.TabIndex = 68;
+            this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
             this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVenta_KeyPress);
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(221, 97);
+            this.label3.Location = new System.Drawing.Point(231, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 20);
             this.label3.TabIndex = 67;

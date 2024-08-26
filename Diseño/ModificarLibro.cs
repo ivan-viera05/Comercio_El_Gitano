@@ -14,6 +14,7 @@ namespace Diseño
     public partial class ModificarLibro : Form
     {
         private NegocioLibros negocioLibros = new NegocioLibros();
+        private NegocioValidaciones validaciones = new NegocioValidaciones();
         public ModificarLibro()
         {
             InitializeComponent();
@@ -235,6 +236,70 @@ namespace Diseño
             txtStock.Clear();
             txtPrecio.Clear();
             cbxGenero.SelectedIndex = -1;
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Validar que solo contenga números
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                 txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+            }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Validar que solo contenga números
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+            }
+        }
+
+        private void txtStock_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Validar que solo contenga números
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+            }
+        }
+
+        private void txtPaginas_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Validar que solo contenga números
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAutor_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

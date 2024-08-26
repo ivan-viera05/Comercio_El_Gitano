@@ -7,7 +7,6 @@ C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.csproj.Generat
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.csproj.CoreCompileInputs.cache
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.exe
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.pdb
-C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.Form1.resources
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\bin\Debug\Negocio.dll
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\bin\Debug\Datos.dll
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\bin\Debug\Negocio.pdb
@@ -28,3 +27,4 @@ C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.ModificarProve
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.ConsultaVenta.resources
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.ConsultaProveedorHistorial.resources
 C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.ConsultaLibroHistorial.resources
+C:\POO\Tp-Individuales\ComercioElGitano\Diseño\obj\Debug\Diseño.ElGitano.resources

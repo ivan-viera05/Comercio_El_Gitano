@@ -14,6 +14,7 @@ namespace Diseño
     public partial class ConsultaProveedor : Form
     {
         private NegocioProveedores negocioProveedores = new NegocioProveedores();
+        private NegocioValidaciones validaciones = new NegocioValidaciones();
 
         public ConsultaProveedor()
         {
@@ -64,6 +65,20 @@ namespace Diseño
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtCodigoProveedor_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+               
+                // Eliminar los caracteres no numéricos del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
         }
     }
 }

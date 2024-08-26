@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(558, 35);
+            this.panel1.Size = new System.Drawing.Size(627, 35);
             this.panel1.TabIndex = 42;
             // 
             // btnClose
@@ -61,7 +61,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = global::Diseño.Properties.Resources.Icono_cerrar_FN;
-            this.btnClose.Location = new System.Drawing.Point(509, 0);
+            this.btnClose.Location = new System.Drawing.Point(578, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(49, 29);
             this.btnClose.TabIndex = 9;
@@ -74,6 +74,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(138, 22);
             this.txtDireccion.TabIndex = 71;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             // 
             // label10
             // 
@@ -110,6 +111,7 @@
             this.txtTelefonoProveedor.Name = "txtTelefonoProveedor";
             this.txtTelefonoProveedor.Size = new System.Drawing.Size(145, 22);
             this.txtTelefonoProveedor.TabIndex = 67;
+            this.txtTelefonoProveedor.TextChanged += new System.EventHandler(this.txtTelefonoProveedor_TextChanged);
             // 
             // label9
             // 
@@ -139,12 +141,15 @@
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.Size = new System.Drawing.Size(131, 22);
             this.txtNombreProveedor.TabIndex = 64;
+            this.txtNombreProveedor.TextChanged += new System.EventHandler(this.txtNombreProveedor_TextChanged);
+            this.txtNombreProveedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreProveedor_KeyDown);
+            this.txtNombreProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProveedor_KeyPress);
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Location = new System.Drawing.Point(443, 139);
+            this.btnCancelar.Location = new System.Drawing.Point(447, 139);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 31);
             this.btnCancelar.TabIndex = 63;
@@ -156,7 +161,7 @@
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(443, 91);
+            this.btnAgregar.Location = new System.Drawing.Point(447, 77);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(87, 31);
             this.btnAgregar.TabIndex = 62;
@@ -181,7 +186,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(518, 125);
+            this.dataGridView1.Size = new System.Drawing.Size(587, 196);
             this.dataGridView1.TabIndex = 72;
             // 
             // AltaProveedor
@@ -189,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(558, 356);
+            this.ClientSize = new System.Drawing.Size(627, 427);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.label10);

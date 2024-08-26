@@ -124,6 +124,7 @@
             this.txtCodigoLibro.Name = "txtCodigoLibro";
             this.txtCodigoLibro.Size = new System.Drawing.Size(125, 22);
             this.txtCodigoLibro.TabIndex = 53;
+            this.txtCodigoLibro.TextChanged += new System.EventHandler(this.txtCodigoLibro_TextChanged);
             // 
             // label4
             // 
@@ -213,6 +214,7 @@
             this.btnEliminar.TabIndex = 68;
             this.btnEliminar.Text = "Eliminar Producto";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // txtCantidadEliminar
             // 
@@ -221,6 +223,7 @@
             this.txtCantidadEliminar.Name = "txtCantidadEliminar";
             this.txtCantidadEliminar.Size = new System.Drawing.Size(71, 22);
             this.txtCantidadEliminar.TabIndex = 70;
+            this.txtCantidadEliminar.TextChanged += new System.EventHandler(this.txtCantidadEliminar_TextChanged);
             // 
             // label1
             // 
@@ -239,6 +242,7 @@
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(181, 22);
             this.txtISBN.TabIndex = 72;
+            this.txtISBN.TextChanged += new System.EventHandler(this.txtISBN_TextChanged);
             // 
             // label3
             // 

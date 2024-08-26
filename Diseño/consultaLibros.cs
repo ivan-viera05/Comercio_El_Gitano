@@ -14,6 +14,7 @@ namespace Diseño
     public partial class consultaLibros : Form
     {
         private NegocioLibros negocioLibros = new NegocioLibros();
+        NegocioValidaciones validaciones = new NegocioValidaciones();
         public consultaLibros()
         {
             InitializeComponent();
@@ -22,7 +23,14 @@ namespace Diseño
 
         private void txtAutor_TextChanged(object sender, EventArgs e)
         {
-
+            // Validar que no haya números en el texto pegado
+            TextBox txt = sender as TextBox;
+            if (System.Text.RegularExpressions.Regex.IsMatch(txt.Text, @"\d"))
+            {
+       
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"\d", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
         }
         private void CargarDatos()
         {
@@ -58,8 +66,8 @@ namespace Diseño
 
         private void consultaLibros_Load(object sender, EventArgs e)
         {
-            
-         
+
+
         }
 
         private void dtgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -100,6 +108,16 @@ namespace Diseño
         private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

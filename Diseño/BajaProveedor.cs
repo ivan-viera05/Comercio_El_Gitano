@@ -14,6 +14,7 @@ namespace Diseño
     public partial class BajaProveedor : Form
     {
         private NegocioProveedores negocioProveedores = new NegocioProveedores();
+        private NegocioValidaciones validaciones = new NegocioValidaciones();
         public BajaProveedor()
         {
             InitializeComponent();
@@ -169,6 +170,71 @@ namespace Diseño
                 }
             }
 
+        }
+
+        private void txtProveedorID_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Evitar el uso de Ctrl+V para pegar texto que no sean números
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Ignorar la tecla
+                MessageBox.Show("No se permite pegar texto que contenga caracteres no numéricos.", "Acción no permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtProveedorID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y la tecla de retroceso (Backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ignorar la tecla
+            }
+        }
+
+        private void txtProveedorID_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                 // Eliminar los caracteres no numéricos del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
+        }
+
+        private void txtNombreProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo letras, espacio, y la tecla de retroceso (Backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true; // Ignorar la tecla
+            }
+        }
+
+        private void txtNombreProveedor_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (validaciones.ContieneNumeros(txt.Text))
+            {
+                MessageBox.Show("El campo solo acepta letras.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // Eliminar los números del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"\d", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
+        }
+
+        private void txtNombreProveedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Evitar el uso de Ctrl+V para pegar
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Ignorar la tecla
+                MessageBox.Show("No se permite pegar texto que contenga números.", "Acción no permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

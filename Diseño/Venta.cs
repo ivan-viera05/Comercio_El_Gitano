@@ -16,6 +16,8 @@ namespace Diseño
 
         private NegocioLibros negocioLibros;
         private DataTable dtgvLibrosDataTable;
+        private NegocioValidaciones validaciones = new NegocioValidaciones();
+        private NegocioLibros LibrosNegocio = new NegocioLibros();
         
         public Venta()
         {
@@ -166,6 +168,99 @@ namespace Diseño
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+           
+        }
+        private void ActualizarSubtotal()
+        {
+            decimal subtotal = 0m;
+
+            foreach (DataGridViewRow dgvRow in dtgvLibros.Rows)
+            {
+                if (dgvRow.Cells[2].Value != null)
+                {
+                    subtotal += Convert.ToDecimal(dgvRow.Cells[2].Value);
+                }
+            }
+
+            lblSubtotal.Text = subtotal.ToString("C"); // Formato de moneda
+            ActualizarTotal();
+        }
+
+        private void ActualizarTotal()
+        {
+            decimal subtotal = decimal.Parse(lblSubtotal.Text, System.Globalization.NumberStyles.Currency);
+            decimal descuento = 0m;
+
+            if (decimal.TryParse(txtDescuento.Text, out descuento) && descuento >= 0 && descuento <= 100)
+            {
+                decimal total = subtotal - (subtotal * (descuento / 100));
+                lblTotal.Text = total.ToString("C"); // Formato de moneda
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un descuento válido (0-100).");
+            }
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            ActualizarTotal();
+        }
+
+        private void txtCodigoLibro_TextChanged(object sender, EventArgs e)
+        {
+            string codigo = txtCodigoLibro.Text.Trim();
+
+            // Validar que solo contenga caracteres numéricos y hasta 13 caracteres
+            
+            if (!validaciones.ValidarNumerosYLongitud(codigo, 13))
+            {
+                MessageBox.Show("El campo codigo solo puede contener hasta 13 caracteres numéricos.", "Validación de Teléfono", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Limitar la longitud del texto a 13 caracteres
+                if (codigo.Length > 13)
+                {
+                   txtCodigoLibro.Text = codigo.Substring(0,13);
+                   txtCodigoLibro.SelectionStart = txtCodigoLibro.Text.Length; // Para colocar el cursor al final del texto
+                }
+            }
+        }
+
+        private void txtISBN_TextChanged(object sender, EventArgs e)
+        {
+            string codigo = txtCodigoLibro.Text.Trim();
+
+            // Validar que solo contenga caracteres numéricos y hasta 13 caracteres
+
+            if (!validaciones.ValidarNumerosYLongitud(codigo, 13))
+            {
+                MessageBox.Show("El campo codigo solo puede contener hasta 13 caracteres numéricos.", "Validación de Teléfono", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Limitar la longitud del texto a 13 caracteres
+                if (codigo.Length > 13)
+                {
+                    txtCodigoLibro.Text = codigo.Substring(0, 13);
+                    txtCodigoLibro.SelectionStart = txtCodigoLibro.Text.Length; // Para colocar el cursor al final del texto
+                }
+            }
+        }
+
+        private void txtCantidadEliminar_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                MessageBox.Show("El campo solo acepta números.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Eliminar los caracteres no numéricos del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
             string isbn = txtISBN.Text;
             int cantidadAEliminar;
 
@@ -223,42 +318,6 @@ namespace Diseño
             {
                 MessageBox.Show("Libro no encontrado en la lista.");
             }
-        }
-        private void ActualizarSubtotal()
-        {
-            decimal subtotal = 0m;
-
-            foreach (DataGridViewRow dgvRow in dtgvLibros.Rows)
-            {
-                if (dgvRow.Cells[2].Value != null)
-                {
-                    subtotal += Convert.ToDecimal(dgvRow.Cells[2].Value);
-                }
-            }
-
-            lblSubtotal.Text = subtotal.ToString("C"); // Formato de moneda
-            ActualizarTotal();
-        }
-
-        private void ActualizarTotal()
-        {
-            decimal subtotal = decimal.Parse(lblSubtotal.Text, System.Globalization.NumberStyles.Currency);
-            decimal descuento = 0m;
-
-            if (decimal.TryParse(txtDescuento.Text, out descuento) && descuento >= 0 && descuento <= 100)
-            {
-                decimal total = subtotal - (subtotal * (descuento / 100));
-                lblTotal.Text = total.ToString("C"); // Formato de moneda
-            }
-            else
-            {
-                MessageBox.Show("Ingrese un descuento válido (0-100).");
-            }
-        }
-
-        private void txtDescuento_TextChanged(object sender, EventArgs e)
-        {
-            ActualizarTotal();
         }
     }
 }

@@ -39,6 +39,15 @@ namespace Datos
                 return dt;
             }
         }
+        public bool ExisteProveedorID(int proveedorID)
+        {
+            string consulta = "SELECT COUNT(1) FROM TuTabla WHERE ProveedorID = @ProveedorID";
+            SqlCommand cmd = new SqlCommand(consulta, Conexion.conectar());
+            cmd.Parameters.AddWithValue("@ProveedorID", proveedorID);
+
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
 
         public DataTable ObtenerProveedorPorNombre(string nombre)
         {

@@ -124,11 +124,11 @@
     <Compile Include="consultaLibros.Designer.cs">
       <DependentUpon>consultaLibros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="ElGitano.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ElGitano.Designer.cs">
+      <DependentUpon>ElGitano.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarLibro.cs">
       <SubType>Form</SubType>
@@ -183,8 +183,8 @@
     <EmbeddedResource Include="consultaLibros.resx">
       <DependentUpon>consultaLibros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ElGitano.resx">
+      <DependentUpon>ElGitano.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarLibro.resx">
       <DependentUpon>ModificarLibro.cs</DependentUpon>

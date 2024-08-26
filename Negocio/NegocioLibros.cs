@@ -12,9 +12,27 @@ namespace Negocio
     public class NegocioLibros
     {
         private DatosLibros datosLibros = new DatosLibros();
-       
 
-        
+
+
+        public bool EliminarLibro(string isbn, int cantidadAEliminar, int cantidadActual, decimal precioActual)
+        {
+            if (cantidadActual >= cantidadAEliminar)
+            {
+                int nuevaCantidad = cantidadActual - cantidadAEliminar;
+                decimal nuevoPrecio = precioActual / cantidadActual * nuevaCantidad;
+
+                if (nuevaCantidad == 0)
+                {
+                    return datosLibros.EliminarLibro(isbn);
+                }
+                else
+                {
+                    return datosLibros.ActualizarCantidadLibro(isbn, nuevaCantidad, nuevoPrecio);
+                }
+            }
+            return false;
+        }
 
         public DataTable LlenarGrid()
         {

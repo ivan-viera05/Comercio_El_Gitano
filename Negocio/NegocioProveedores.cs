@@ -29,6 +29,10 @@ namespace Negocio
         {
             return datosProveedores.ObtenerTodosLibrosProveedores();
         }
+        public bool VerificarProveedorID(int proveedorID)
+        {
+            return datosProveedores.ExisteProveedorID(proveedorID);
+        }
 
         public DataTable BuscarProveedorID(int proveedorID)
         {

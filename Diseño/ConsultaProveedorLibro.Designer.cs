@@ -47,7 +47,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(545, 56);
+            this.panel1.Size = new System.Drawing.Size(590, 28);
             this.panel1.TabIndex = 46;
             // 
             // btnClose
@@ -57,7 +57,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = global::Diseño.Properties.Resources.Icono_cerrar_FN;
-            this.btnClose.Location = new System.Drawing.Point(496, 0);
+            this.btnClose.Location = new System.Drawing.Point(541, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(49, 29);
             this.btnClose.TabIndex = 9;
@@ -69,6 +69,7 @@
             this.txtCodigoProveedor.Name = "txtCodigoProveedor";
             this.txtCodigoProveedor.Size = new System.Drawing.Size(284, 22);
             this.txtCodigoProveedor.TabIndex = 58;
+            this.txtCodigoProveedor.TextChanged += new System.EventHandler(this.txtCodigoProveedor_TextChanged);
             // 
             // label3
             // 
@@ -85,7 +86,7 @@
             // btnBuscarProveedor
             // 
             this.btnBuscarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBuscarProveedor.Location = new System.Drawing.Point(458, 85);
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(491, 65);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(87, 31);
             this.btnBuscarProveedor.TabIndex = 56;
@@ -96,7 +97,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLimpiar.Location = new System.Drawing.Point(458, 122);
+            this.btnLimpiar.Location = new System.Drawing.Point(491, 122);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(87, 31);
             this.btnLimpiar.TabIndex = 55;
@@ -110,6 +111,7 @@
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.Size = new System.Drawing.Size(284, 22);
             this.txtNombreProveedor.TabIndex = 54;
+            this.txtNombreProveedor.TextChanged += new System.EventHandler(this.txtNombreProveedor_TextChanged);
             // 
             // label1
             // 
@@ -133,13 +135,13 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 200);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 180);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(521, 104);
+            this.dataGridView1.Size = new System.Drawing.Size(566, 162);
             this.dataGridView1.TabIndex = 59;
             // 
             // ConsultaProveedorLibro
@@ -147,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(545, 341);
+            this.ClientSize = new System.Drawing.Size(590, 379);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtCodigoProveedor);
             this.Controls.Add(this.label3);

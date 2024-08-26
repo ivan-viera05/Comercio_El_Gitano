@@ -15,6 +15,7 @@ namespace Diseño
     {
 
         NegocioProveedores negocioProveedores = new NegocioProveedores();
+        private NegocioValidaciones validaciones = new NegocioValidaciones();
         public ModificarProveedor()
         {
             InitializeComponent();
@@ -67,6 +68,40 @@ namespace Diseño
             txtTelefono.Text = dtgv.CurrentRow.Cells[3].Value.ToString();
             txtDireccion.Text = dtgv.CurrentRow.Cells[4].Value.ToString();
             
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Validar que solo contenga números
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+            }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            string telefono = txtTelefono.Text.Trim();
+
+            // Validar que solo contenga caracteres numéricos y hasta 20 caracteres
+            
+            if (!validaciones.ValidarNumerosYLongitud(telefono, 20))
+            {
+              
+                // Limitar la longitud del texto a 20 caracteres
+                if (telefono.Length > 20)
+                {
+                    txtTelefono.Text = telefono.Substring(0, 20);
+                    txtTelefono.SelectionStart = txtTelefono.Text.Length; // Para colocar el cursor al final del texto
+                }
+            }
         }
     }
 }

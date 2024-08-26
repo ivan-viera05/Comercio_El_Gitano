@@ -14,6 +14,7 @@ namespace Diseño
     public partial class ConsultaVenta : Form
     {
         NegocioVenta negocioVenta = new NegocioVenta();
+        NegocioValidaciones validaciones = new NegocioValidaciones();
         public ConsultaVenta()
         {
             InitializeComponent();
@@ -133,6 +134,56 @@ namespace Diseño
            
             
 
+        }
+
+        private void txtIDVenta_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                // Eliminar los caracteres no numéricos del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
+        }
+
+        private void txtCodigoLibro_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                // Eliminar los caracteres no numéricos del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Usar la capa de negocio para validar
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+                // Eliminar los caracteres no numéricos del texto
+                txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+                txt.SelectionStart = txt.Text.Length; // Colocar el cursor al final del texto
+            }
+        }
+
+        private void txtPrecioVenta_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Validar que solo contenga números
+            if (!validaciones.EsSoloNumeros(txt.Text))
+            {
+               txt.Text = System.Text.RegularExpressions.Regex.Replace(txt.Text, @"[^\d]", "");
+            }
         }
     }
 }
